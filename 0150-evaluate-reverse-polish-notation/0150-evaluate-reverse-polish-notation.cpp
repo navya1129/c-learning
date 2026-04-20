@@ -33,7 +33,6 @@ public:
                 if(one !=0 )s.push(two/one);
             }
             else s.push(stoi(tokens[i]));
-            cout << s.top();
             
         }
         return s.top();
