@@ -25,22 +25,14 @@ public:
         ListNode* aft = head->next;
         int mid = n/2;
         while(mid != 0){
-            cout << temp->val << " ";
             temp->next = s.top();
             s.pop();
             temp = temp->next;
-            cout << temp->val << " ";
             temp->next = aft;
             temp = aft;
             aft = aft->next;
             mid--;
         }
         temp->next = NULL;
-        temp = head;
-        while(temp != NULL){
-            cout << temp->val;
-            temp = temp->next;
-        }
-        cout << head;
     }
 };
