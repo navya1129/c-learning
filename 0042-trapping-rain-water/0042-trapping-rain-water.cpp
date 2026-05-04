@@ -9,13 +9,13 @@ public:
         while(i <= j){
             if(left <= right){
                 ans += max(0,left-height[i]);
-                i++;
                 if(i < n) left = max(left,height[i]);
+                i++;
             }
             else{
                 ans += max(0,right - height[j]);
-                j--;
                 if(j >= 0) right = max(right,height[j]);
+                j--;
             }
         }
         return ans;
