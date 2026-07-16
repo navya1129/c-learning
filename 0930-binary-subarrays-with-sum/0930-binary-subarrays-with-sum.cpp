@@ -1,18 +1,16 @@
 class Solution {
 public:
-    int fun(vector<int> nums,int goal){
-        if(goal == -1) return 0;
-        int i = 0,res = 0,sum = 0;
-        for(int j = 0;j < nums.size();j++){
-            goal -= nums[j];
-            while(goal < 0 && i <= j) goal += nums[i++];
-            res += j-i+1;
-        }
-        cout << res << " ";
-        return res;
-    }
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        return fun(nums,goal) - fun(nums,goal-1);
-    }
-
+        map<int,int> m;
+        int n = nums.size();
+        int pre = 0;
+        int ans = 0;
+        m[0] = 1;
+        for(int i = 0;i < n;i++){
+            pre += nums[i];
+            if(m.find(pre-goal) != m.end()) ans += m[pre-goal];
+            m[pre]++;
+        }
+        return ans;
+    }
 };
