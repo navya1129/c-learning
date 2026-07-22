@@ -20,7 +20,8 @@ public:
                 res.push_back(0);
             }
             else{
-                res.push_back(prev(it)->second);
+                it--;
+                res.push_back(it->second);
             }
         }
         return res;
