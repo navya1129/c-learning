@@ -16,19 +16,14 @@ public:
             int two = dq.front();
             dq.pop_front();
             int cnt = 0;
-            cout << "values" << "\n";
-            cout << one << " " << two << "\n";
             if(skills[one] > skills[two]){
                 while(skills[one] > skills[two]){
                     dq.push_back(two);
                     two = dq.front();
                     dq.pop_front();
                     m[one]++;
-                    cout << one << " " << m[one] << "\n";
                     if(m[one] == k) return one;
                 }
-                // dq.push_back(one);
-                // dq.push_front(two);
             }
             else{
                 while(skills[one] < skills[two]){
@@ -39,8 +34,6 @@ public:
                     cout << two << " " << m[two] << "\n";
                     if(m[two] == k) return two;
                 }
-                // dq.push_back(two);
-                // dq.push_front(one);
             }
             dq.push_front(one);
             dq.push_front(two);
